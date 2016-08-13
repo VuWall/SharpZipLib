@@ -141,7 +141,7 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression.Streams
 		public int ReadRawBuffer(byte[] outBuffer, int offset, int length)
 		{
 			if (length < 0) {
-				throw new ArgumentOutOfRangeException(nameof(length));
+				throw new ArgumentOutOfRangeException(ICSharpCode.SharpZipLib.Name.Of(length));
 			}
 
 			int currentOffset = offset;
@@ -173,7 +173,7 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression.Streams
 		public int ReadClearTextBuffer(byte[] outBuffer, int offset, int length)
 		{
 			if (length < 0) {
-				throw new ArgumentOutOfRangeException(nameof(length));
+				throw new ArgumentOutOfRangeException(ICSharpCode.SharpZipLib.Name.Of(length));
 			}
 
 			int currentOffset = offset;
@@ -335,15 +335,15 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression.Streams
 		public InflaterInputStream(Stream baseInputStream, Inflater inflater, int bufferSize)
 		{
 			if (baseInputStream == null) {
-				throw new ArgumentNullException(nameof(baseInputStream));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(baseInputStream));
 			}
 
 			if (inflater == null) {
-				throw new ArgumentNullException(nameof(inflater));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(inflater));
 			}
 
 			if (bufferSize <= 0) {
-				throw new ArgumentOutOfRangeException(nameof(bufferSize));
+				throw new ArgumentOutOfRangeException(ICSharpCode.SharpZipLib.Name.Of(bufferSize));
 			}
 
 			this.baseInputStream = baseInputStream;
@@ -382,7 +382,7 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression.Streams
 		public long Skip(long count)
 		{
 			if (count <= 0) {
-				throw new ArgumentOutOfRangeException(nameof(count));
+				throw new ArgumentOutOfRangeException(ICSharpCode.SharpZipLib.Name.Of(count));
 			}
 
 			// v0.80 Skip by seeking if underlying stream supports it...

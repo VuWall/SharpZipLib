@@ -17,7 +17,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public WindowsNameTransform(string baseDirectory)
 		{
 			if (baseDirectory == null) {
-				throw new ArgumentNullException(nameof(baseDirectory), "Directory name is invalid");
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(baseDirectory), "Directory name is invalid");
 			}
 
 			BaseDirectory = baseDirectory;
@@ -38,7 +38,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 			get { return _baseDirectory; }
 			set {
 				if (value == null) {
-					throw new ArgumentNullException(nameof(value));
+					throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(value));
 				}
 
 				_baseDirectory = Path.GetFullPath(value);
@@ -139,7 +139,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public static string MakeValidName(string name, char replacement)
 		{
 			if (name == null) {
-				throw new ArgumentNullException(nameof(name));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(name));
 			}
 
 			name = WindowsPathUtils.DropPathRoot(name.Replace("/", Path.DirectorySeparatorChar.ToString()));

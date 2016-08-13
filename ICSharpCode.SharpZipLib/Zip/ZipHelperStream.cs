@@ -497,7 +497,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public int WriteDataDescriptor(ZipEntry entry)
 		{
 			if (entry == null) {
-				throw new ArgumentNullException(nameof(entry));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(entry));
 			}
 
 			int result = 0;

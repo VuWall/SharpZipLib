@@ -172,7 +172,7 @@ namespace ICSharpCode.SharpZipLib.BZip2
 		public override int Read(byte[] buffer, int offset, int count)
 		{
 			if (buffer == null) {
-				throw new ArgumentNullException(nameof(buffer));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(buffer));
 			}
 
 			for (int i = 0; i < count; ++i) {

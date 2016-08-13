@@ -396,7 +396,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 					   bool isStreamOwner)
 		{
 			if ((overwrite == Overwrite.Prompt) && (confirmDelegate == null)) {
-				throw new ArgumentNullException(nameof(confirmDelegate));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(confirmDelegate));
 			}
 
 			continueRunning_ = true;
@@ -481,7 +481,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 		void AddFileContents(string name, Stream stream)
 		{
 			if (stream == null) {
-				throw new ArgumentNullException(nameof(stream));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(stream));
 			}
 
 			if (buffer_ == null) {

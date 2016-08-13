@@ -201,15 +201,15 @@ namespace ICSharpCode.SharpZipLib.BZip2
 		public override void Write(byte[] buffer, int offset, int count)
 		{
 			if (buffer == null) {
-				throw new ArgumentNullException(nameof(buffer));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(buffer));
 			}
 
 			if (offset < 0) {
-				throw new ArgumentOutOfRangeException(nameof(offset));
+				throw new ArgumentOutOfRangeException(ICSharpCode.SharpZipLib.Name.Of(offset));
 			}
 
 			if (count < 0) {
-				throw new ArgumentOutOfRangeException(nameof(count));
+				throw new ArgumentOutOfRangeException(ICSharpCode.SharpZipLib.Name.Of(count));
 			}
 
 			if (buffer.Length - offset < count) {

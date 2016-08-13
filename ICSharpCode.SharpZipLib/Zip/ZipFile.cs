@@ -359,7 +359,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public ZipFile(string name)
 		{
 			if (name == null) {
-				throw new ArgumentNullException(nameof(name));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(name));
 			}
 
 			name_ = name;
@@ -389,11 +389,11 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public ZipFile(FileStream file)
 		{
 			if (file == null) {
-				throw new ArgumentNullException(nameof(file));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(file));
 			}
 
 			if (!file.CanSeek) {
-				throw new ArgumentException("Stream is not seekable", nameof(file));
+				throw new ArgumentException("Stream is not seekable", ICSharpCode.SharpZipLib.Name.Of(file));
 			}
 
 			baseStream_ = file;
@@ -427,11 +427,11 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public ZipFile(Stream stream)
 		{
 			if (stream == null) {
-				throw new ArgumentNullException(nameof(stream));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(stream));
 			}
 
 			if (!stream.CanSeek) {
-				throw new ArgumentException("Stream is not seekable", nameof(stream));
+				throw new ArgumentException("Stream is not seekable", ICSharpCode.SharpZipLib.Name.Of(stream));
 			}
 
 			baseStream_ = stream;
@@ -495,7 +495,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public static ZipFile Create(string fileName)
 		{
 			if (fileName == null) {
-				throw new ArgumentNullException(nameof(fileName));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(fileName));
 			}
 
 			FileStream fs = File.Create(fileName);
@@ -517,15 +517,15 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public static ZipFile Create(Stream outStream)
 		{
 			if (outStream == null) {
-				throw new ArgumentNullException(nameof(outStream));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(outStream));
 			}
 
 			if (!outStream.CanWrite) {
-				throw new ArgumentException("Stream is not writeable", nameof(outStream));
+				throw new ArgumentException("Stream is not writeable", ICSharpCode.SharpZipLib.Name.Of(outStream));
 			}
 
 			if (!outStream.CanSeek) {
-				throw new ArgumentException("Stream is not seekable", nameof(outStream));
+				throw new ArgumentException("Stream is not seekable", ICSharpCode.SharpZipLib.Name.Of(outStream));
 			}
 
 			var result = new ZipFile();
@@ -694,7 +694,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public Stream GetInputStream(ZipEntry entry)
 		{
 			if (entry == null) {
-				throw new ArgumentNullException(nameof(entry));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(entry));
 			}
 
 			if (isDisposed_) {
@@ -1202,7 +1202,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 			get { return bufferSize_; }
 			set {
 				if (value < 1024) {
-					throw new ArgumentOutOfRangeException(nameof(value), "cannot be below 1024");
+					throw new ArgumentOutOfRangeException(ICSharpCode.SharpZipLib.Name.Of(value), "cannot be below 1024");
 				}
 
 				if (bufferSize_ != value) {
@@ -1253,11 +1253,11 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public void BeginUpdate(IArchiveStorage archiveStorage, IDynamicDataSource dataSource)
 		{
 			if (archiveStorage == null) {
-				throw new ArgumentNullException(nameof(archiveStorage));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(archiveStorage));
 			}
 
 			if (dataSource == null) {
-				throw new ArgumentNullException(nameof(dataSource));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(dataSource));
 			}
 
 			if (isDisposed_) {
@@ -1432,7 +1432,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public void Add(string fileName, CompressionMethod compressionMethod, bool useUnicodeText)
 		{
 			if (fileName == null) {
-				throw new ArgumentNullException(nameof(fileName));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(fileName));
 			}
 
 			if (isDisposed_) {
@@ -1440,7 +1440,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 			}
 
 			if (!ZipEntry.IsCompressionMethodSupported(compressionMethod)) {
-				throw new ArgumentOutOfRangeException(nameof(compressionMethod));
+				throw new ArgumentOutOfRangeException(ICSharpCode.SharpZipLib.Name.Of(compressionMethod));
 			}
 
 			CheckUpdating();
@@ -1463,11 +1463,11 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public void Add(string fileName, CompressionMethod compressionMethod)
 		{
 			if (fileName == null) {
-				throw new ArgumentNullException(nameof(fileName));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(fileName));
 			}
 
 			if (!ZipEntry.IsCompressionMethodSupported(compressionMethod)) {
-				throw new ArgumentOutOfRangeException(nameof(compressionMethod));
+				throw new ArgumentOutOfRangeException(ICSharpCode.SharpZipLib.Name.Of(compressionMethod));
 			}
 
 			CheckUpdating();
@@ -1486,7 +1486,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public void Add(string fileName)
 		{
 			if (fileName == null) {
-				throw new ArgumentNullException(nameof(fileName));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(fileName));
 			}
 
 			CheckUpdating();
@@ -1502,11 +1502,11 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public void Add(string fileName, string entryName)
 		{
 			if (fileName == null) {
-				throw new ArgumentNullException(nameof(fileName));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(fileName));
 			}
 
 			if (entryName == null) {
-				throw new ArgumentNullException(nameof(entryName));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(entryName));
 			}
 
 			CheckUpdating();
@@ -1522,11 +1522,11 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public void Add(IStaticDataSource dataSource, string entryName)
 		{
 			if (dataSource == null) {
-				throw new ArgumentNullException(nameof(dataSource));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(dataSource));
 			}
 
 			if (entryName == null) {
-				throw new ArgumentNullException(nameof(entryName));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(entryName));
 			}
 
 			CheckUpdating();
@@ -1542,11 +1542,11 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public void Add(IStaticDataSource dataSource, string entryName, CompressionMethod compressionMethod)
 		{
 			if (dataSource == null) {
-				throw new ArgumentNullException(nameof(dataSource));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(dataSource));
 			}
 
 			if (entryName == null) {
-				throw new ArgumentNullException(nameof(entryName));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(entryName));
 			}
 
 			CheckUpdating();
@@ -1567,11 +1567,11 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public void Add(IStaticDataSource dataSource, string entryName, CompressionMethod compressionMethod, bool useUnicodeText)
 		{
 			if (dataSource == null) {
-				throw new ArgumentNullException(nameof(dataSource));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(dataSource));
 			}
 
 			if (entryName == null) {
-				throw new ArgumentNullException(nameof(entryName));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(entryName));
 			}
 
 			CheckUpdating();
@@ -1591,7 +1591,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public void Add(ZipEntry entry)
 		{
 			if (entry == null) {
-				throw new ArgumentNullException(nameof(entry));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(entry));
 			}
 
 			CheckUpdating();
@@ -1610,7 +1610,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public void AddDirectory(string directoryName)
 		{
 			if (directoryName == null) {
-				throw new ArgumentNullException(nameof(directoryName));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(directoryName));
 			}
 
 			CheckUpdating();
@@ -1651,7 +1651,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public bool Delete(string fileName)
 		{
 			if (fileName == null) {
-				throw new ArgumentNullException(nameof(fileName));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(fileName));
 			}
 
 			CheckUpdating();
@@ -1676,7 +1676,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public void Delete(ZipEntry entry)
 		{
 			if (entry == null) {
-				throw new ArgumentNullException(nameof(entry));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(entry));
 			}
 
 			CheckUpdating();

@@ -447,7 +447,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 			set {
 				if ((value < 0) || (value > 65535) ||
 					(value == 1) || (value == 2) || (value == 3) || (value == 42)) {
-					throw new ArgumentOutOfRangeException(nameof(value));
+					throw new ArgumentOutOfRangeException(ICSharpCode.SharpZipLib.Name.Of(value));
 				}
 
 				defaultCodePage = value;

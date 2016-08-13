@@ -99,7 +99,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 			// TODO: Its not yet clear how to handle unicode comments here.
 			byte[] commentBytes = ZipConstants.ConvertToArray(comment);
 			if (commentBytes.Length > 0xffff) {
-				throw new ArgumentOutOfRangeException(nameof(comment));
+				throw new ArgumentOutOfRangeException(ICSharpCode.SharpZipLib.Name.Of(comment));
 			}
 			zipComment = commentBytes;
 		}
@@ -200,7 +200,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public void PutNextEntry(ZipEntry entry)
 		{
 			if (entry == null) {
-				throw new ArgumentNullException(nameof(entry));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(entry));
 			}
 
 			if (entries == null) {
@@ -570,15 +570,15 @@ namespace ICSharpCode.SharpZipLib.Zip
 			}
 
 			if (buffer == null) {
-				throw new ArgumentNullException(nameof(buffer));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(buffer));
 			}
 
 			if (offset < 0) {
-				throw new ArgumentOutOfRangeException(nameof(offset), "Cannot be negative");
+				throw new ArgumentOutOfRangeException(ICSharpCode.SharpZipLib.Name.Of(offset), "Cannot be negative");
 			}
 
 			if (count < 0) {
-				throw new ArgumentOutOfRangeException(nameof(count), "Cannot be negative");
+				throw new ArgumentOutOfRangeException(ICSharpCode.SharpZipLib.Name.Of(count), "Cannot be negative");
 			}
 
 			if ((buffer.Length - offset) < count) {

@@ -12,11 +12,11 @@ namespace ICSharpCode.SharpZipLib.Tests.TestSupport
 		static void Compare(byte[] a, byte[] b)
 		{
 			if (a == null) {
-				throw new ArgumentNullException(nameof(a));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(a));
 			}
 
 			if (b == null) {
-				throw new ArgumentNullException(nameof(b));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(b));
 			}
 
 			Assert.AreEqual(a.Length, b.Length);

@@ -24,7 +24,7 @@ namespace ICSharpCode.SharpZipLib.Tests.TestSupport
 		public ReadWriteRingBuffer(int size)
 		{
 			if (size <= 0) {
-				throw new ArgumentOutOfRangeException(nameof(size));
+				throw new ArgumentOutOfRangeException(ICSharpCode.SharpZipLib.Name.Of(size));
 			}
 
 			array_ = new byte[size];
@@ -313,7 +313,7 @@ namespace ICSharpCode.SharpZipLib.Tests.TestSupport
 		public byte this[int index] {
 			get {
 				if ((index < 0) || (index >= array_.Length)) {
-					throw new ArgumentOutOfRangeException(nameof(index));
+					throw new ArgumentOutOfRangeException(ICSharpCode.SharpZipLib.Name.Of(index));
 				}
 
 				return array_[(tail_ + index) % array_.Length];

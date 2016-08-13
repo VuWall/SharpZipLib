@@ -187,7 +187,7 @@ namespace ICSharpCode.SharpZipLib.Tar
 		public override int Read(byte[] buffer, int offset, int count)
 		{
 			if (buffer == null) {
-				throw new ArgumentNullException(nameof(buffer));
+				throw new ArgumentNullException(ICSharpCode.SharpZipLib.Name.Of(buffer));
 			}
 
 			int totalRead = 0;
